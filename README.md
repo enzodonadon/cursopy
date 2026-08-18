@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Roadmap Python
 Mapeamento do meu progresso em Python. Aqui organizo os marcos de aprendizado, desde a sintaxe inicial e estruturas de dados até códigos mais complexos.
 Status atual: Finalizando recursos intermediários da linguagem e explorando Orientação a Objetos.
@@ -29,4 +27,4 @@ Funções avançadas — lambda, *args, **kwargs e desempacotamento
 Comprehensions — list, dict e set comprehension com map e filter  
 Conceitos internos — isinstance, truthy/falsy, dir/hasattr, iteradores, generators e yield  
 Tratamento avançado de exceções — try/except em profundidade  
->>>>>>> 81a57f40e8279ac3d14bffcef654319a97be36ed
+
