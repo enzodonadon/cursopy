@@ -1,2 +1,0 @@
-# cursopy
-Curso de Python

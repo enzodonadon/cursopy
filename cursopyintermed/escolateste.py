@@ -1,5 +1,8 @@
-import os, time, smtplib, email.message, random
+import os, time
+import smtplib, email.message, random
+import subprocess
 
+comando = "cls" if os.name == "nt" else "clear"
 
 codg = random.randint(100000, 999999)
 codg2 = random.randint(100000, 999999)
@@ -8,7 +11,7 @@ codg3 = random.randint(100000, 999999)
 def tempo_tela(x):
     for seg in range(x):
         time.sleep(1)
-    os.system("cls")
+    subprocess([comando], shell = True)
 
 
 myemail = ""
@@ -21,7 +24,7 @@ while True:
     if op == "N" or op == "n":
         cond = None
         while cond == None:
-            os.system('cls')
+            subprocess([comando], shell = True)
             usuario = input("Digite o nome do seu usuario: ")
             if not usuario.isalpha():   
                 print("Seu usuario deve conter apenas letras.")
@@ -40,7 +43,7 @@ while True:
 
             else:
                 cond = True
-                os.system("cls")
+                subprocess([comando], shell = True)
         
         cond1 = None
         while cond1 == None:
@@ -69,12 +72,11 @@ while True:
                     continue
                 else:
                     cond = True
-            except:
+            except (ValueError, TypeError):
                 print("O campo deve conter um numero inteiro.")
                 tempo_tela(2)
                 continue
-            
-        os.system("cls")      
+        subprocess([comando], shell = True)      
 
         #Serie    
         cond = None
@@ -90,7 +92,7 @@ while True:
                     if serie >= 1 and serie <= 3:
                         ensino = input("Pertence ao ensino medio (S/N)? ")
                         while ensino != "S" and ensino != "s" and ensino != "N" and ensino != "n":
-                            os.system("cls")
+                            subprocess([comando], shell = True)
                             ensino = input("Digite um caractere valido (S/N): ")
                         cond = True
                     else:
@@ -107,11 +109,11 @@ while True:
         tempo_tela(2)
     cond8 = None
     while cond8 == None:
-        os.system("cls")
+        subprocess([comando], shell = True)
         cad1 = input("Digite seu usuario: ")
         cad = input("Digite sua senha: ")
         if cad1 == "V" or cad1 == "v" or cad == "V" or cad == "v":
-            os.system("cls")
+            subprocess([comando], shell = True)
             break
         try:
             senha1 = senha
@@ -137,7 +139,7 @@ for seg_rest in range(2):
 #Abre o menu de opcoes
 
 while True:
-    os.system("cls")
+    subprocess([comando], shell = True)
     print("1: Perfil | 2: Notas | 3: Tarefas")
     opcoes_inp = (input(""))
     try:
@@ -149,7 +151,7 @@ while True:
 
     #Perfil        
     while opcoes == 1:
-        os.system("cls")
+        subprocess([comando], shell = True)
         print(f"Colégio Elementar\n\nNome de usuario: {usuario1}\nIdade: {idade}")
         if ensino == "S" or ensino == "s":
             print(f"Serie: {serie}º E.M.")
@@ -169,12 +171,12 @@ while True:
             tempo_tela(2)
             continue
         if pressione == "v" or pressione == "V":
-            os.system("cls")
+            subprocess([comando], shell = True)
             break
         elif pressione == "C" or pressione == "c":
-            os.system("cls")
+            subprocess([comando], shell = True)
             while myemail == "":
-                os.system("cls")
+                subprocess([comando], shell = True)
                 print("E: Adicionar E-Mail | S: Mudar senha | V: Voltar")
                 op1 = input("")
                 if op1 != "E" and op1 != "e" and op1 != "S" and op1 != "s" and op1 != "v" and op1 != "V":
@@ -185,7 +187,7 @@ while True:
                     #enviar email para adicionar
                 if op1 == "E" or op1 == "e":
                     cont5 = 0
-                    os.system("cls")
+                    subprocess([comando], shell = True)
                     while True:
                         myemail = input("Digite seu email: ")
                         if "gmail.com"  not in myemail and "yahoo.com"  not in myemail and "hotmart.com" not in myemail:
@@ -261,23 +263,22 @@ while True:
                                 tempo_tela(2)
                                 continue
 
-
                 elif op1 == "S" or op1 == "s":
                     print("Para alterar sua senha, é necessario adicionar um email para a confirmação.")
                     tempo_tela(2)  
                 elif op1 == "v" or op1 == "V":
-                    os.system("cls")
+                    subprocess([comando], shell = True)
                     break
             cont = 0
             while myemail != "":
-                os.system("cls")
+                subprocess([comando], shell = True)
                 print("E: Alterar E-Mail | S: Mudar senha | V: Voltar")
                 op1 = input("")
                 if op1 != "E" and op1 != "e" and op1 != "S" and op1 != "s" and op1 != "v" and op1 != "V":
                     print("Digite um caractere válido.")
                     tempo_tela(2)
                 elif op1 == "E" or op1 == "e":
-                    os.system("cls")
+                    subprocess([comando], shell = True)
                     while True:
                         myemail = input("Digite seu email que deseja trocar/alterar: ")
                         if "gmail.com" not in myemail and "yahoo.com" not in myemail and "hotmart.com"not in myemail:
@@ -320,11 +321,11 @@ while True:
                     print("*Caso não tenha recebido, verifique seu spam ou tente novamente (6).*")
                     #email enviado
 
-                    os.system("cls")
+                    subprocess([comando], shell = True)
                     cond3 = None
                     
                     while cond3 == None:
-                        os.system("cls")
+                        subprocess([comando], shell = True)
                         confirm_codg2_inp = input("Digite o código enviado em seu email: ")
                         try:
                             confirm_codg2 = int(confirm_codg2_inp)
@@ -348,7 +349,7 @@ while True:
                                 try:
                                     confirm_codg2 = int(confirm_codg2_inp)
                                 except:
-                                    os.system("cls")
+                                    subprocess([comando], shell = True)
                             if cont4 >= 5 and confirm_codg2 != codg2:
                                 print("Foi realizada muitas tentativas. Tente novamente mais tarde.")
                                 break
@@ -375,7 +376,7 @@ while True:
                         if sa == senha1:
                             cond2 = None
                             while cond2 == None:
-                                os.system("cls")
+                                subprocess([comando], shell = True)
                                 senha1 = input("Agora, digite sua nova senha: ")
                                 ler_senha1 = len(senha1)
                                 if ler_senha1 < 4:
@@ -394,7 +395,7 @@ while True:
                             print('Caso tenha esquecido a senha, digite "5".')
                             for seg_rest in range(3):
                                 time.sleep(1)
-                            os.system("cls")
+                            subprocess([comando], shell = True)
                             if cont2 == 5:
                                 print("Foi realizada muitas tentativas. Tente novamente mais tarde.")
                                 break
@@ -412,7 +413,7 @@ while True:
 
                                 msg = email.message.Message()
                                 msg['Subject'] = ("Confirmação de E-Mail.")
-                                msg['From'] = 'ischoolasup@gmail.com'
+                                msg['From'] = 'noreply@gmail.com'
                                 msg['To'] = (f'{myemail}')
                                 password = 'shec kcxu ekms pegv ' 
                                 msg.add_header('Content-Type', 'text/html')
@@ -420,18 +421,23 @@ while True:
 
                                 s = smtplib.SMTP('smtp.gmail.com: 587')
                                 s.starttls()
-                                # Login Credentials for sending the mail
+                                
                                 s.login(msg['From'], password)
                                 s.sendmail(msg['From'], [msg['To']], msg.as_string().encode('utf-8'))
+                            
+                            try:
+                                enviar_email_3()
                                 print("")
                                 print('Email enviado. Verifique seu email.')
-                            
-                            enviar_email_3()
+                            except Exception:
+                                print("Erro ao enviar email. Tente novamente")
+
+
                             print("")
                             print("*Caso não tenha recebido, verifique seu spam ou tente novamente (6).*")
                             #email enviado
                             print("")
-                            os.system("cls")
+                            subprocess([comando], shell = True)
                             cond4 = None
                             while cond4 == None:
                                 confirm_codg3_inp = input("Digite o código enviado em seu email: ")
@@ -458,8 +464,8 @@ while True:
                                         try:
                                             confirm_codg3 = int(confirm_codg3_inp)
                                         except:
-                                            os.system("cls")
-                                        os.system("cls")
+                                            subprocess([comando], shell = True)
+                                        subprocess([comando], shell = True)
                                     if cont == 5 and confirm_codg3 != codg3:
                                         print("Foi realizada muitas tentativas. Tente novamente mais tarde.")
                                         break
@@ -470,5 +476,5 @@ while True:
                 elif op1 == "v" or op1 == "V":
                     break
     while opcoes == 2:
-        os.system
+        subprocess([comando], shell = True)
 print("")    
