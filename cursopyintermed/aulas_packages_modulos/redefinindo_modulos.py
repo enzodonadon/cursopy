@@ -1,5 +1,5 @@
 import importlib
-import modulos2
+import modulos_inicio2 as modulos2
 
 print(modulos2.nome)
 

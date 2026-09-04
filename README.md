@@ -27,5 +27,5 @@ Funções avançadas — lambda, *args, **kwargs e desempacotamento
 Comprehensions — list, dict e set comprehension com map e filter  
 Conceitos internos — isinstance, truthy/falsy, dir/hasattr, iteradores, generators e yield  
 Tratamento avançado de exceções — try/except/finally em profundidade  
-Importações - import, modulos, importlib, singleton, __main__
+Importações - import, modulos, importlib, singleton, __main__, packages
 
